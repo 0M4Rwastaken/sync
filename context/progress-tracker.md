@@ -67,9 +67,24 @@ Status: Complete
 - Created placeholder dashboard page
 - Confirmed all Clerk environment variables are set
 
-## In Progress
+## Completed
 
 ### 05 — Database schema
+Status: Complete
+- Defined five core Prisma models — User, Workspace,
+  WorkspaceMember, Channel, Message
+- Added MemberRole and ChannelType enums
+- Configured dual connection strings for Neon —
+  DATABASE_URL for runtime, DIRECT_URL for migrations
+- Ran first migration — init
+- Confirmed all five tables visible in Prisma Studio
+- Updated src/lib/db.ts with singleton pattern
+- Created src/lib/env.ts with full environment
+  variable validation
+
+## In Progress
+
+### 06 — User sync
 Status: Not started
 
 ## Next Up
