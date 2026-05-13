@@ -9,7 +9,7 @@
 
 ## Current Goal
 
-- Continue from Feature Spec 05 when defined.
+- Continue from Feature Spec 06 when defined.
 
 ## Completed
 
@@ -82,10 +82,18 @@ Status: Complete
 - Created src/lib/env.ts with full environment
   variable validation
 
-## In Progress
+## Completed
 
 ### 06 — User sync
-Status: Not started
+Status: Complete
+- Installed svix for Clerk webhook signature verification
+- Added CLERK_WEBHOOK_SECRET to src/lib/env.ts validation
+- Created src/lib/sync-user.ts with upsert helper (clerkId, email,
+  name, imageUrl) used by both webhook and layout
+- Created src/app/api/webhooks/clerk/route.ts — verifies svix
+  signature, handles user.created / user.updated / user.deleted
+- Updated (dashboard)/layout.tsx to call syncUser() on every
+  dashboard load as a first-visit fallback
 
 ## Next Up
 
@@ -105,3 +113,4 @@ Status: Not started
 - Completed folder consolidation per `context/feature-specs/03-folder-fixes.md`.
 - Completed authentication per `context/feature-specs/04-auth.md`.
 - App Router lives under `src/app/`; Clerk v7 middleware uses `auth.protect()` (the handler’s `auth`, not `auth()`).
+- Completed user sync per `context/feature-specs/06-user-sync.md`. Webhook at /api/webhooks/clerk; dashboard layout upserts on every load as fallback.
